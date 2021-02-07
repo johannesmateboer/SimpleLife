@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SC ",
+    "B  ",
+    "   "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:bone"
+    },
+    "C": {
+      "item": "minecraft:charcoal"
+    },
+    "B": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "result": {
+    "item": "minecraft:black_dye",
+    "count": 1
+  }
+}
