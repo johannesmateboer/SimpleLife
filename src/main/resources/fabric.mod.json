@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "simplelife",
-  "version": "0.0.1",
+  "version": "0.0.2",
 
   "name": "SimpleLife",
   "description": "Some simple items to make life a little easier.",
@@ -10,7 +10,7 @@
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/simplelife",
-    "sources": ""
+    "sources": "https://github.com/johannesmateboer/SimpleLife"
   },
 
   "license": "MIT",
