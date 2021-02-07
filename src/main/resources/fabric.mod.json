@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "simplelife",
+  "version": "0.0.1",
+
+  "name": "SimpleLife",
+  "description": "Some simple items to make life a little easier.",
+  "authors": [
+    "John Pattox"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/simplelife",
+    "sources": ""
+  },
+
+  "license": "MIT",
+  "icon": "assets/simplelife/simplelife_icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "simplelife.common.SimpleLife"
+    ]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
