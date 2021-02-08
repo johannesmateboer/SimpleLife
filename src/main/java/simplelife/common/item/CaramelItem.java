@@ -9,14 +9,16 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class BleachItem extends Item {
-    public BleachItem(Settings settings) {
+public class CaramelItem extends Item {
+    public CaramelItem(Settings settings) {
         super(settings);
     }
 
+    public static float saturationModifier = 0.2F;
+
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(new TranslatableText("item.simplelife.bleach_item.tooltip"));
+        tooltip.add(new TranslatableText("item.simplelife.caramel_item.tooltip"));
     }
 
 }

@@ -11,5 +11,7 @@
   "item.simplelife.salt_item.tooltip" : "Salt that can clean your wool",
   "item.simplelife.salt_item" : "Salt",
   "item.simplelife.bleach_item.tooltip" : "Not for internal use. Just an advice.",
-  "item.simplelife.bleach_item" : "Bleach"
+  "item.simplelife.bleach_item" : "Bleach",
+  "item.simplelife.caramel_item.tooltip" : "Sweet and sticky.",
+  "item.simplelife.caramel_item" : "Caramel"
 }
