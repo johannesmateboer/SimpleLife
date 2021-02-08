@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RYB",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:red_dye"
+    },
+    "Y": {
+      "item": "minecraft:yellow_dye"
+    },
+    "B": {
+      "item": "minecraft:blue_dye"
+    }
+  },
+  "result": {
+    "item": "minecraft:brown_dye",
+    "count": 3
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients" : [
+    {
+      "item" : "simplelife:bleach_item"
+    },
+    {
+      "tag" : "minecraft:carpets"
+    }
+  ],
+
+  "result": {
+    "item": "minecraft:white_carpet"
+  }
+}
