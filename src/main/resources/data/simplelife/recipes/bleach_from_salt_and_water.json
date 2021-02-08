@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SBR",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "S": {
+      "item": "simplelife:salt_item"
+    },
+    "B": {
+      "item": "minecraft:glass_bottle"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "simplelife:bleach_item",
+    "count": 3
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "smelting",
+  "ingredient" : {
+    "item" : "minecraft:potion",
+    "nbt": "{Potion:'minecraft:water'}"
+  },
+  "result" : "simplelife:salt_item",
+  "experience": 0.2
+}

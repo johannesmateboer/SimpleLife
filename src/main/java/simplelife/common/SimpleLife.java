@@ -9,29 +9,34 @@ import net.minecraft.block.Material;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import simplelife.common.block.WhiteLamp;
-import simplelife.common.item.UselessStick;
+import simplelife.common.block.*;
+import simplelife.common.item.BleachItem;
+import simplelife.common.item.SaltItem;
 
 public class SimpleLife implements ModInitializer {
 
     // LampSettings
-    private static int hardness = 3;
+    private static final int hardness = 3;
 
     // Initialize the blocks
     public static final Block WHITE_LAMP = new WhiteLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
-    public static final Block RED_LAMP = new WhiteLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
-    public static final Block BLUE_LAMP = new WhiteLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
-    public static final Block YELLOW_LAMP = new WhiteLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
-    public static final Block GREEN_LAMP = new WhiteLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
-    public static final Block BLACK_LAMP = new WhiteLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
-    public static final Block GRAY_LAMP = new WhiteLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
-    public static final Block PURPLE_LAMP = new WhiteLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
+    public static final Block RED_LAMP = new RedLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
+    public static final Block BLUE_LAMP = new BlueLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
+    public static final Block YELLOW_LAMP = new YellowLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
+    public static final Block GREEN_LAMP = new GreenLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
+    public static final Block BLACK_LAMP = new BlackLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
+    public static final Block GRAY_LAMP = new GrayLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
+    public static final Block PURPLE_LAMP = new PurpleLamp(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(10).hardness(hardness));
 
     // Set the ItemGroup
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
             new Identifier("simplelife", "general"))
             .icon(() -> new ItemStack(WHITE_LAMP))
             .build();
+
+    // Initialize the items
+    public static final SaltItem SALT_ITEM = new SaltItem(new FabricItemSettings().group(SimpleLife.ITEM_GROUP));
+    public static final BleachItem BLEACH_ITEM = new BleachItem(new FabricItemSettings().group(SimpleLife.ITEM_GROUP));
 
     @Override
     public void onInitialize() {
@@ -59,6 +64,10 @@ public class SimpleLife implements ModInitializer {
 
         Registry.register(Registry.BLOCK, new Identifier("simplelife", "purple_lamp"), PURPLE_LAMP);
         Registry.register(Registry.ITEM, new Identifier("simplelife", "purple_lamp"), new BlockItem(PURPLE_LAMP, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
+
+        // Items
+        Registry.register(Registry.ITEM, new Identifier("simplelife", "salt_item"), SALT_ITEM);
+        Registry.register(Registry.ITEM, new Identifier("simplelife", "bleach_item"), BLEACH_ITEM);
     }
 
 

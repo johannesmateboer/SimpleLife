@@ -7,5 +7,9 @@
   "block.simplelife.red_lamp": "Red lamp",
   "block.simplelife.white_lamp": "White lamp",
   "block.simplelife.yellow_lamp": "Yellow lamp",
-  "itemGroup.simplelife.general": "SimpleLife"
+  "itemGroup.simplelife.general": "SimpleLife",
+  "item.simplelife.salt_item.tooltip" : "Salt that can clean your wool",
+  "item.simplelife.salt_item" : "Salt",
+  "item.simplelife.bleach_item.tooltip" : "Not for internal use. Just an advice.",
+  "item.simplelife.bleach_item" : "Bleach"
 }
