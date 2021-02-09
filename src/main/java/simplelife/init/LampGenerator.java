@@ -10,9 +10,12 @@ public class LampGenerator {
 
     /**
      * Returns default settings for all lamps
+     *
      * @return FabricBlockSettings
      */
     public static FabricBlockSettings getDefaultLampSettings() {
         return FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(luminance).hardness(hardness).nonOpaque();
     }
+
+
 }

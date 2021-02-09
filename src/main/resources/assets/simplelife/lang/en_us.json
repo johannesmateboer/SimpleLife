@@ -13,5 +13,7 @@
   "item.simplelife.bleach_item.tooltip" : "Not for internal use. Just an advice.",
   "item.simplelife.bleach_item" : "Bleach",
   "item.simplelife.caramel_item.tooltip" : "Sweet and sticky.",
-  "item.simplelife.caramel_item" : "Caramel"
+  "item.simplelife.caramel_item" : "Caramel",
+  "item.simplelife.lott_boots.tooltip" : "Touch the earth with love",
+  "item.simplelife.lott_boots" : "Lott boots"
 }

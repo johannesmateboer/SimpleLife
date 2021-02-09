@@ -1,6 +1,5 @@
 package simplelife.init;
 
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.FoodComponent;
 
 public class FoodComponentBuilder {

@@ -3,9 +3,8 @@ package simplelife.common;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
-import net.minecraft.block.Material;
+import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -14,9 +13,11 @@ import net.minecraft.util.registry.Registry;
 import simplelife.common.block.*;
 import simplelife.common.item.BleachItem;
 import simplelife.common.item.CaramelItem;
+import simplelife.common.item.LottBoots;
 import simplelife.common.item.SaltItem;
 import simplelife.init.FoodComponentBuilder;
 import simplelife.init.LampGenerator;
+import simplelife.materials.LottArmorMaterial;
 
 public class SimpleLife implements ModInitializer {
 
@@ -46,6 +47,10 @@ public class SimpleLife implements ModInitializer {
     public static final CaramelItem CARAMEL_ITEM = new CaramelItem(new FabricItemSettings()
             .group(SimpleLife.ITEM_GROUP).food(FoodComponentBuilder.getDefaultFoodComponent(CaramelItem.saturationModifier)));
 
+    // Lott Boots
+    public static final ArmorMaterial LottArmorMaterial = new LottArmorMaterial();
+    public static final LottBoots LOTT_BOOTS = new LottBoots();
+
     @Override
     public void onInitialize() {
         // All the lamps!
@@ -62,6 +67,9 @@ public class SimpleLife implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "salt_item"), SALT_ITEM);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "bleach_item"), BLEACH_ITEM);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "caramel_item"), CARAMEL_ITEM);
+
+        // Boots
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lott_boots"), LOTT_BOOTS);
     }
 
     private static void registerLamp(String identifier, Block lamp) {

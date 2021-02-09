@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "simplelife",
-  "version": "0.0.2",
+  "version": "0.0.3",
 
   "name": "SimpleLife",
   "description": "Some simple items to make life a little easier.",
@@ -23,6 +23,7 @@
     ]
   },
   "mixins": [
+    "simplelife.mixins.json"
   ],
 
   "depends": {

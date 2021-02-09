@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WDW",
+    "CCC"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:white_wool"
+    },
+    "D": {
+      "item": "minecraft:diamond_boots"
+    },
+    "C": {
+      "item": "simplelife:caramel_item"
+    }
+  },
+  "result": {
+    "item": "simplelife:lott_boots",
+    "count": 1
+  }
+}

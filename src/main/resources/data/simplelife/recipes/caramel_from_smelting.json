@@ -1,8 +1,8 @@
 {
   "type": "smelting",
   "ingredient" : {
-    "item" : "minecraft:apple"
+    "item" : "minecraft:sugar"
   },
   "result" : "simplelife:caramel_item",
-  "experience": 0.2
+  "experience": 0.1
 }
