@@ -11,12 +11,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import simplelife.common.block.*;
-import simplelife.common.item.BleachItem;
-import simplelife.common.item.CaramelItem;
-import simplelife.common.item.LottBoots;
-import simplelife.common.item.SaltItem;
+import simplelife.common.item.*;
 import simplelife.init.FoodComponentBuilder;
 import simplelife.init.LampGenerator;
+import simplelife.init.LootGenerator;
 import simplelife.materials.LottArmorMaterial;
 
 public class SimpleLife implements ModInitializer {
@@ -43,6 +41,7 @@ public class SimpleLife implements ModInitializer {
     public static final SaltItem SALT_ITEM = new SaltItem(new FabricItemSettings().group(SimpleLife.ITEM_GROUP));
     public static final BleachItem BLEACH_ITEM = new BleachItem(new FabricItemSettings().group(SimpleLife.ITEM_GROUP)
             .food(FoodComponentBuilder.getBleachFoodComponent()));
+    public static final SilkStringItem SILK_STRING_ITEM = new SilkStringItem(new FabricItemSettings().group(SimpleLife.ITEM_GROUP));
 
     public static final CaramelItem CARAMEL_ITEM = new CaramelItem(new FabricItemSettings()
             .group(SimpleLife.ITEM_GROUP).food(FoodComponentBuilder.getDefaultFoodComponent(CaramelItem.saturationModifier)));
@@ -67,9 +66,12 @@ public class SimpleLife implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "salt_item"), SALT_ITEM);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "bleach_item"), BLEACH_ITEM);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "caramel_item"), CARAMEL_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silk_string_item"), SILK_STRING_ITEM);
 
         // Boots
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lott_boots"), LOTT_BOOTS);
+
+        LootGenerator.initLoot();
     }
 
     private static void registerLamp(String identifier, Block lamp) {

@@ -15,5 +15,7 @@
   "item.simplelife.caramel_item.tooltip" : "Sweet and sticky.",
   "item.simplelife.caramel_item" : "Caramel",
   "item.simplelife.lott_boots.tooltip" : "Touch the earth with love",
-  "item.simplelife.lott_boots" : "Lott boots"
+  "item.simplelife.lott_boots" : "Lott boots",
+  "item.simplelife.silk_string_item.tooltip": "A string soft as.. eh.. yeah.",
+  "item.simplelife.silk_string_item": "Silk string"
 }

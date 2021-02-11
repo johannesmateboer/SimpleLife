@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "S": {
+      "item": "simplelife:silk_string_item"
+    }
+  },
+  "result": {
+    "item": "minecraft:string",
+    "count": 1
+  }
+}
