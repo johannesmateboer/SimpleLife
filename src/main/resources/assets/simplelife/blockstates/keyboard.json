@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "simplelife:block/keyboard"
+    },
+    "facing=east": {
+      "model": "simplelife:block/keyboard",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "simplelife:block/keyboard",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "simplelife:block/keyboard",
+      "y": 270
+    }
+  }
+}

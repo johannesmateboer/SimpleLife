@@ -35,6 +35,9 @@ public class SimpleLife implements ModInitializer {
     // Furniture
     public static final Block TABLE = new Table(FabricBlockSettings.of(Material.METAL).nonOpaque());
     public static final Block TABLE_BELL = new TableBell(FabricBlockSettings.of(Material.METAL).nonOpaque());
+    public static final Block KEYBOARD = new Keyboard(FabricBlockSettings.of(Material.METAL).nonOpaque());
+    public static final Block MONITOR = new Monitor(FabricBlockSettings.of(Material.METAL).nonOpaque().luminance(5));
+    public static final Block COMPUTER = new Computer(FabricBlockSettings.of(Material.METAL).nonOpaque().luminance(5));
 
     public static final Block OVERHEAD_LAMP = new OverheadLamp(FabricBlockSettings.of(Material.METAL).nonOpaque().luminance(12));
     public static final Block WALLMOUNT = new Wallmount(FabricBlockSettings.of(Material.METAL).nonOpaque());
@@ -91,6 +94,9 @@ public class SimpleLife implements ModInitializer {
         // Furniture
         registerBlock(Table.identifier, TABLE);
         registerBlock(TableBell.identifier, TABLE_BELL);
+        registerBlock(Keyboard.identifier, KEYBOARD);
+        registerBlock(Monitor.identifier, MONITOR);
+        registerBlock(Computer.identifier, COMPUTER);
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "overhead_lamp"), OVERHEAD_LAMP);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "overhead_lamp"), new BlockItem(OVERHEAD_LAMP, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
@@ -110,7 +116,9 @@ public class SimpleLife implements ModInitializer {
 
     private static void registerBlock(String identifier, Block block) {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, identifier), block);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, identifier), new BlockItem(block, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, identifier),
+                new BlockItem(block, new FabricItemSettings().group(SimpleLife.ITEM_GROUP))
+        );
     }
 
 }

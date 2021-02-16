@@ -1,4 +1,5 @@
 {
+	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "simplelife:models/furniture_base",
 		"1": "simplelife:models/table_top",

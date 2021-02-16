@@ -14,11 +14,11 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import simplelife.common.util.BoxRotator;
 
-public class Lowtable extends Block {
+public class Computer extends Block {
 
-    public static String identifier = "lowtable";
+    public static String identifier = "computer";
 
-    public Lowtable(Settings settings) {
+    public Computer(Settings settings) {
         super(settings);
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
@@ -41,6 +41,18 @@ public class Lowtable extends Block {
 
     @Override
     public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, ShapeContext entityContext) {
-        return VoxelShapes.cuboid(0, 0, 0, 1.0F, 0.5F, 1);
+        VoxelShape v = VoxelShapes.cuboid(0, 0, (2F / 16F), 1, 1, (14F / 16F));
+        Direction direction = blockState.get(Properties.HORIZONTAL_FACING);
+        switch (direction) {
+            case NORTH:
+                return v;
+            case SOUTH:
+                return VoxelShapes.cuboid(BoxRotator.rotateHorizontal(v.getBoundingBox(), 180));
+            case EAST:
+                return VoxelShapes.cuboid(BoxRotator.rotateHorizontal(v.getBoundingBox(), 270));
+            case WEST:
+                return VoxelShapes.cuboid(BoxRotator.rotateHorizontal(v.getBoundingBox(), 90));
+        }
+        return v;
     }
 }

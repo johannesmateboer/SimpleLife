@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " G ",
+    " S ",
+    " P "
+  ],
+  "key": {
+    "G": {
+      "tag": "minecraft:impermeable"
+    },
+    "S": {
+      "tag": "minecraft:torch"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "simplelife:tablelamp",
+    "count": 1
+  }
+}
