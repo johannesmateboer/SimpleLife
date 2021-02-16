@@ -14,16 +14,17 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import simplelife.common.block.*;
+import simplelife.common.block.OverheadLamp;
 import simplelife.common.block.entities.CabinetEntity;
 import simplelife.common.block.entities.WorktableEntity;
+import simplelife.common.block.furniture.*;
 import simplelife.common.gui.WorktableScreenHandler;
-import simplelife.common.item.*;
+import simplelife.common.item.LottBoots;
 import simplelife.common.registries.Items;
 import simplelife.common.registries.Lamps;
-import simplelife.init.FoodComponentBuilder;
 import simplelife.init.LootGenerator;
 import simplelife.materials.LottArmorMaterial;
 
@@ -33,6 +34,8 @@ public class SimpleLife implements ModInitializer {
 
     // Furniture
     public static final Block TABLE = new Table(FabricBlockSettings.of(Material.METAL).nonOpaque());
+    public static final Block TABLE_BELL = new TableBell(FabricBlockSettings.of(Material.METAL).nonOpaque());
+
     public static final Block OVERHEAD_LAMP = new OverheadLamp(FabricBlockSettings.of(Material.METAL).nonOpaque().luminance(12));
     public static final Block WALLMOUNT = new Wallmount(FabricBlockSettings.of(Material.METAL).nonOpaque());
     public static final Block CORNERBLOCK = new Cornerblock(FabricBlockSettings.of(Material.METAL).nonOpaque());
@@ -63,9 +66,12 @@ public class SimpleLife implements ModInitializer {
     public static final ArmorMaterial LottArmorMaterial = new LottArmorMaterial();
     public static final LottBoots LOTT_BOOTS = new LottBoots();
 
+    public static final Identifier SOUND_TABLE_BELL_ID = new Identifier(SimpleLife.MOD_ID, "table_bell_ring");
+    public static SoundEvent SOUND_TABLE_BELL = new SoundEvent(SOUND_TABLE_BELL_ID);
+
+
     static {
         Lamps.init();
-
         Items.init();
 
         WORKTABLE = Registry.register(Registry.BLOCK, WORKTABLE_IDENTIFIER, new Worktable(FabricBlockSettings.copyOf(Blocks.CHEST).nonOpaque()));
@@ -83,29 +89,28 @@ public class SimpleLife implements ModInitializer {
     public void onInitialize() {
 
         // Furniture
-        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "table"), TABLE);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "table"), new BlockItem(TABLE, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
+        registerBlock(Table.identifier, TABLE);
+        registerBlock(TableBell.identifier, TABLE_BELL);
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "overhead_lamp"), OVERHEAD_LAMP);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "overhead_lamp"), new BlockItem(OVERHEAD_LAMP, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
 
-        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "wallmount"), WALLMOUNT);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "wallmount"), new BlockItem(WALLMOUNT, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
-
+        registerBlock(Wallmount.identifier, WALLMOUNT);
         registerBlock(Cornerblock.identifier, CORNERBLOCK);
         registerBlock(Workblock.identifier, WORKBLOCK);
         registerBlock(Lowtable.identifier, LOWTABLE);
 
         // Boots
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lott_boots"), LOTT_BOOTS);
-
         LootGenerator.initLoot();
+
+        //Sounds
+        Registry.register(Registry.SOUND_EVENT, SOUND_TABLE_BELL_ID, SOUND_TABLE_BELL);
     }
 
     private static void registerBlock(String identifier, Block block) {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, identifier), block);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, identifier), new BlockItem(block, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
     }
-
 
 }

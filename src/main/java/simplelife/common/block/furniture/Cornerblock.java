@@ -1,4 +1,4 @@
-package simplelife.common.block;
+package simplelife.common.block.furniture;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
@@ -8,23 +8,23 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.Direction;
 
-public class Workblock extends Block {
+public class Cornerblock extends Block {
 
-    public static String identifier = "workblock";
+    public static String identifier = "cornerblock";
 
-    public Workblock(Settings settings) {
+    public Cornerblock(Settings settings) {
         super(settings);
-        setDefaultState(this.stateManager.getDefaultState().with(Properties.FACING, Direction.NORTH));
+        setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
-        stateManager.add(Properties.FACING);
+        stateManager.add(Properties.HORIZONTAL_FACING);
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(Properties.FACING, ctx.getPlayerFacing());
+        return this.getDefaultState().with(Properties.HORIZONTAL_FACING, ctx.getPlayerFacing());
     }
 
     @Override

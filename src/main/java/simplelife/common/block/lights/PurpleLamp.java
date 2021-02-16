@@ -1,4 +1,4 @@
-package simplelife.common.block;
+package simplelife.common.block.lights;
 
 import net.minecraft.block.Block;
 

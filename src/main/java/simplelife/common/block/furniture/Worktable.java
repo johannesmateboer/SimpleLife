@@ -1,4 +1,4 @@
-package simplelife.common.block;
+package simplelife.common.block.furniture;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -29,7 +29,7 @@ public class Worktable extends BlockWithEntity implements BlockEntityProvider {
 
     public Worktable(Settings settings) {
         super(settings);
-        setDefaultState(this.stateManager.getDefaultState().with(Properties.FACING, Direction.NORTH));
+        setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
 
     @Override
@@ -39,12 +39,12 @@ public class Worktable extends BlockWithEntity implements BlockEntityProvider {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
-        stateManager.add(Properties.FACING);
+        stateManager.add(Properties.HORIZONTAL_FACING);
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(Properties.FACING, ctx.getPlayerFacing());
+        return this.getDefaultState().with(Properties.HORIZONTAL_FACING, ctx.getPlayerFacing());
     }
 
     @Override

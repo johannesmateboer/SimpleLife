@@ -1,4 +1,4 @@
-package simplelife.common.block;
+package simplelife.common.block.furniture;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -14,6 +14,8 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import simplelife.common.block.entities.CabinetEntity;
@@ -23,7 +25,7 @@ public class Cabinet extends BlockWithEntity implements BlockEntityProvider {
 
     public Cabinet(Settings settings) {
         super(settings);
-        setDefaultState(this.stateManager.getDefaultState().with(Properties.FACING, Direction.NORTH));
+        setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
 
     @Override
@@ -33,12 +35,12 @@ public class Cabinet extends BlockWithEntity implements BlockEntityProvider {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
-        stateManager.add(Properties.FACING);
+        stateManager.add(Properties.HORIZONTAL_FACING);
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(Properties.FACING, ctx.getPlayerFacing());
+        return this.getDefaultState().with(Properties.HORIZONTAL_FACING, ctx.getPlayerFacing());
     }
 
     @Override
@@ -85,4 +87,5 @@ public class Cabinet extends BlockWithEntity implements BlockEntityProvider {
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
         return ScreenHandler.calculateComparatorOutput(world.getBlockEntity(pos));
     }
+
 }

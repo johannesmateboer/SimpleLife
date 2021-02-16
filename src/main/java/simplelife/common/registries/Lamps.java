@@ -7,6 +7,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import simplelife.common.SimpleLife;
 import simplelife.common.block.*;
+import simplelife.common.block.lights.*;
 import simplelife.init.LampGenerator;
 
 public class Lamps {
@@ -19,6 +20,8 @@ public class Lamps {
     public static final Block BLACK_LAMP = registerLamp(BlackLamp.identifier, new BlackLamp(LampGenerator.getDefaultLampSettings()));
     public static final Block GRAY_LAMP = registerLamp(GrayLamp.identifier, new GrayLamp(LampGenerator.getDefaultLampSettings()));
     public static final Block PURPLE_LAMP = registerLamp(PurpleLamp.identifier, new PurpleLamp(LampGenerator.getDefaultLampSettings()));
+    public static final Block TABLELAMP = registerLamp(Tablelamp.identifier, new Tablelamp(LampGenerator.getDefaultLampSettings().nonOpaque()));
+    public static final Block CEILING_LAMP = registerLamp(CeilingLamp.identifier, new CeilingLamp(LampGenerator.getDefaultLampSettings().nonOpaque()));
 
     public static void init() {
         // Does nothing, just here to start the class

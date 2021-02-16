@@ -7,6 +7,8 @@
   "block.simplelife.red_lamp": "Red lamp",
   "block.simplelife.white_lamp": "White lamp",
   "block.simplelife.yellow_lamp": "Yellow lamp",
+  "block.simplelife.tablelamp": "Table lamp",
+  "block.simplelife.ceiling_lamp": "Ceiling lamp",
   "block.simplelife.worktable": "Worktable",
   "block.simplelife.cabinet": "Cabinet",
   "block.simplelife.cornerblock": "Cornerblock",
@@ -24,5 +26,6 @@
   "item.simplelife.lott_boots.tooltip" : "Touch the earth with love",
   "item.simplelife.lott_boots" : "Lott boots",
   "item.simplelife.silk_string_item.tooltip": "A string soft as.. eh.. yeah.",
-  "item.simplelife.silk_string_item": "Silk string"
+  "item.simplelife.silk_string_item": "Silk string",
+  "simplelife.subtitle.bellringing": "Bell ringing"
 }
