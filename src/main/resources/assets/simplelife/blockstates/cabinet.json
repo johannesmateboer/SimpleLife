@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "simplelife:block/cabinet"
+    },
+    "facing=east": {
+      "model": "simplelife:block/cabinet",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "simplelife:block/cabinet",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "simplelife:block/cabinet",
+      "y": 270
+    }
+  }
+}

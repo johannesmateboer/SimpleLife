@@ -17,11 +17,13 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import simplelife.common.block.*;
+import simplelife.common.block.entities.CabinetEntity;
 import simplelife.common.block.entities.WorktableEntity;
 import simplelife.common.gui.WorktableScreenHandler;
 import simplelife.common.item.*;
+import simplelife.common.registries.Items;
+import simplelife.common.registries.Lamps;
 import simplelife.init.FoodComponentBuilder;
-import simplelife.init.LampGenerator;
 import simplelife.init.LootGenerator;
 import simplelife.materials.LottArmorMaterial;
 
@@ -29,68 +31,56 @@ public class SimpleLife implements ModInitializer {
 
     public static final String MOD_ID = "simplelife";
 
-    // Initialize the blocks
-    public static final Block WHITE_LAMP = new WhiteLamp(LampGenerator.getDefaultLampSettings());
-    public static final Block RED_LAMP = new RedLamp(LampGenerator.getDefaultLampSettings());
-    public static final Block BLUE_LAMP = new BlueLamp(LampGenerator.getDefaultLampSettings());
-    public static final Block YELLOW_LAMP = new YellowLamp(LampGenerator.getDefaultLampSettings());
-    public static final Block GREEN_LAMP = new GreenLamp(LampGenerator.getDefaultLampSettings());
-    public static final Block BLACK_LAMP = new BlackLamp(LampGenerator.getDefaultLampSettings());
-    public static final Block GRAY_LAMP = new GrayLamp(LampGenerator.getDefaultLampSettings());
-    public static final Block PURPLE_LAMP = new PurpleLamp(LampGenerator.getDefaultLampSettings());
-
     // Furniture
     public static final Block TABLE = new Table(FabricBlockSettings.of(Material.METAL).nonOpaque());
     public static final Block OVERHEAD_LAMP = new OverheadLamp(FabricBlockSettings.of(Material.METAL).nonOpaque().luminance(12));
+    public static final Block WALLMOUNT = new Wallmount(FabricBlockSettings.of(Material.METAL).nonOpaque());
+    public static final Block CORNERBLOCK = new Cornerblock(FabricBlockSettings.of(Material.METAL).nonOpaque());
+    public static final Block WORKBLOCK = new Workblock(FabricBlockSettings.of(Material.METAL).nonOpaque());
+    public static final Block LOWTABLE = new Lowtable(FabricBlockSettings.of(Material.METAL).nonOpaque());
+
+    // Worktable
     public static final Block WORKTABLE;
     public static final BlockItem WORKTABLE_ITEM;
     public static final Identifier WORKTABLE_IDENTIFIER = new Identifier(MOD_ID, "worktable");
-    public static final Block WALLMOUNT = new Wallmount(FabricBlockSettings.of(Material.METAL).nonOpaque());
+    public static BlockEntityType<WorktableEntity> WORKTABLE_ENTITY;
+    public static final ScreenHandlerType<WorktableScreenHandler> WORKTABLE_SCREEN_HANDLER;
+
+    // Cabinet
+    public static final Block CABINET;
+    public static final BlockItem CABINET_ITEM;
+    public static final Identifier CABINET_IDENTIFIER = new Identifier(MOD_ID, "cabinet");
+    public static BlockEntityType<CabinetEntity> CABINET_ENTITY;
+    public static final ScreenHandlerType<WorktableScreenHandler> CABINET_SCREEN_HANDLER;
 
     // Set the ItemGroup
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
             new Identifier(MOD_ID, "general"))
-            .icon(() -> new ItemStack(WHITE_LAMP))
+            .icon(() -> new ItemStack(TABLE))
             .build();
-
-    // Initialize the items
-    public static final SaltItem SALT_ITEM = new SaltItem(new FabricItemSettings().group(SimpleLife.ITEM_GROUP));
-    public static final BleachItem BLEACH_ITEM = new BleachItem(new FabricItemSettings().group(SimpleLife.ITEM_GROUP)
-            .food(FoodComponentBuilder.getBleachFoodComponent()));
-    public static final SilkStringItem SILK_STRING_ITEM = new SilkStringItem(new FabricItemSettings().group(SimpleLife.ITEM_GROUP));
-
-    public static final CaramelItem CARAMEL_ITEM = new CaramelItem(new FabricItemSettings()
-            .group(SimpleLife.ITEM_GROUP).food(FoodComponentBuilder.getDefaultFoodComponent(CaramelItem.saturationModifier)));
 
     // Lott Boots
     public static final ArmorMaterial LottArmorMaterial = new LottArmorMaterial();
     public static final LottBoots LOTT_BOOTS = new LottBoots();
 
-    // Entities
-    public static BlockEntityType<WorktableEntity> WORKTABLE_ENTITY;
-
-    // Screenhandlers
-    public static final ScreenHandlerType<WorktableScreenHandler> WORKTABLE_SCREEN_HANDLER;
-
     static {
+        Lamps.init();
+
+        Items.init();
+
         WORKTABLE = Registry.register(Registry.BLOCK, WORKTABLE_IDENTIFIER, new Worktable(FabricBlockSettings.copyOf(Blocks.CHEST).nonOpaque()));
         WORKTABLE_ITEM = Registry.register(Registry.ITEM, WORKTABLE_IDENTIFIER, new BlockItem(WORKTABLE, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
-        WORKTABLE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "simplelife:worktable", BlockEntityType.Builder.create(WorktableEntity::new, WORKTABLE).build(null));
+        WORKTABLE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, WORKTABLE_IDENTIFIER, BlockEntityType.Builder.create(WorktableEntity::new, WORKTABLE).build(null));
+        WORKTABLE_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(WORKTABLE_IDENTIFIER, WorktableScreenHandler::new);
 
-        WORKTABLE_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(MOD_ID, "worktable"), WorktableScreenHandler::new);
+        CABINET = Registry.register(Registry.BLOCK, CABINET_IDENTIFIER, new Cabinet(FabricBlockSettings.copyOf(Blocks.CHEST).nonOpaque()));
+        CABINET_ITEM = Registry.register(Registry.ITEM, CABINET_IDENTIFIER, new BlockItem(CABINET, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
+        CABINET_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, CABINET_IDENTIFIER, BlockEntityType.Builder.create(CabinetEntity::new, CABINET).build(null));
+        CABINET_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(CABINET_IDENTIFIER, WorktableScreenHandler::new);
     }
 
     @Override
     public void onInitialize() {
-        // All the lamps!
-        registerLamp(WhiteLamp.identifier, WHITE_LAMP);
-        registerLamp(RedLamp.identifier, RED_LAMP);
-        registerLamp(BlueLamp.identifier, BLUE_LAMP);
-        registerLamp(YellowLamp.identifier, YELLOW_LAMP);
-        registerLamp(GreenLamp.identifier, GREEN_LAMP);
-        registerLamp(BlackLamp.identifier, BLACK_LAMP);
-        registerLamp(GrayLamp.identifier, GRAY_LAMP);
-        registerLamp(PurpleLamp.identifier, PURPLE_LAMP);
 
         // Furniture
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "table"), TABLE);
@@ -99,17 +89,12 @@ public class SimpleLife implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "overhead_lamp"), OVERHEAD_LAMP);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "overhead_lamp"), new BlockItem(OVERHEAD_LAMP, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
 
-        //Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "worktable"), WORKTABLE);
-        //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "worktable"), new BlockItem(WORKTABLE, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
-
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "wallmount"), WALLMOUNT);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "wallmount"), new BlockItem(WALLMOUNT, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
 
-        // Items
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "salt_item"), SALT_ITEM);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "bleach_item"), BLEACH_ITEM);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "caramel_item"), CARAMEL_ITEM);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "silk_string_item"), SILK_STRING_ITEM);
+        registerBlock(Cornerblock.identifier, CORNERBLOCK);
+        registerBlock(Workblock.identifier, WORKBLOCK);
+        registerBlock(Lowtable.identifier, LOWTABLE);
 
         // Boots
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lott_boots"), LOTT_BOOTS);
@@ -117,9 +102,9 @@ public class SimpleLife implements ModInitializer {
         LootGenerator.initLoot();
     }
 
-    private static void registerLamp(String identifier, Block lamp) {
-        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, identifier), lamp);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, identifier), new BlockItem(lamp, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
+    private static void registerBlock(String identifier, Block block) {
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, identifier), block);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, identifier), new BlockItem(block, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
     }
 
 
