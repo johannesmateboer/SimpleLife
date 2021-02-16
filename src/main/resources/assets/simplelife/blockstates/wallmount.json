@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "simplelife:block/wallmount"
+    },
+    "facing=east": {
+      "model": "simplelife:block/wallmount",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "simplelife:block/wallmount",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "simplelife:block/wallmount",
+      "y": 270
+    }
+  }
+}

@@ -3,7 +3,10 @@ package simplelife.common;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.GlassBlock;
+import net.minecraft.block.Material;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
@@ -30,6 +33,12 @@ public class SimpleLife implements ModInitializer {
     public static final Block BLACK_LAMP = new BlackLamp(LampGenerator.getDefaultLampSettings());
     public static final Block GRAY_LAMP = new GrayLamp(LampGenerator.getDefaultLampSettings());
     public static final Block PURPLE_LAMP = new PurpleLamp(LampGenerator.getDefaultLampSettings());
+
+    // Furniture
+    public static final Block TABLE = new Table(FabricBlockSettings.of(Material.METAL).nonOpaque());
+    public static final Block OVERHEAD_LAMP = new OverheadLamp(FabricBlockSettings.of(Material.METAL).nonOpaque().luminance(12));
+    public static final Block WORKTABLE = new Worktable(FabricBlockSettings.of(Material.METAL).nonOpaque());
+    public static final Block WALLMOUNT = new Wallmount(FabricBlockSettings.of(Material.METAL).nonOpaque());
 
     // Set the ItemGroup
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
@@ -61,6 +70,19 @@ public class SimpleLife implements ModInitializer {
         registerLamp(BlackLamp.identifier, BLACK_LAMP);
         registerLamp(GrayLamp.identifier, GRAY_LAMP);
         registerLamp(PurpleLamp.identifier, PURPLE_LAMP);
+
+        // Furniture
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "table"), TABLE);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "table"), new BlockItem(TABLE, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
+
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "overhead_lamp"), OVERHEAD_LAMP);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "overhead_lamp"), new BlockItem(OVERHEAD_LAMP, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
+
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "worktable"), WORKTABLE);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "worktable"), new BlockItem(WORKTABLE, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
+
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "wallmount"), WALLMOUNT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "wallmount"), new BlockItem(WALLMOUNT, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
 
         // Items
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "salt_item"), SALT_ITEM);

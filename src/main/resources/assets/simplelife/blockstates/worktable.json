@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "simplelife:block/worktable"
+    },
+    "facing=east": {
+      "model": "simplelife:block/worktable",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "simplelife:block/worktable",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "simplelife:block/worktable",
+      "y": 270
+    }
+  }
+}

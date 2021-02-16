@@ -6,7 +6,7 @@ import net.minecraft.block.Material;
 public class LampGenerator {
 
     private static final int hardness = 3;
-    private static final int luminance = 11;
+    private static final int luminance = 14;
 
     /**
      * Returns default settings for all lamps
@@ -14,7 +14,7 @@ public class LampGenerator {
      * @return FabricBlockSettings
      */
     public static FabricBlockSettings getDefaultLampSettings() {
-        return FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(luminance).hardness(hardness).nonOpaque();
+        return FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(luminance).hardness(hardness);
     }
 
 
