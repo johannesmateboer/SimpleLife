@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "simplelife",
-  "version": "0.0.4",
+  "version": "0.0.5",
 
   "name": "SimpleLife",
   "description": "Some simple items to make life a little easier.",
@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "simplelife.common.SimpleLife"
+    ],
+    "client": [
+      "simplelife.common.SimpleLifeClient"
     ]
   },
   "mixins": [

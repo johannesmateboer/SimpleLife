@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "SCS",
+    "S S"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "P": {
+      "item": "minecraft:heavy_weighted_pressure_plate"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "simplelife:worktable",
+    "count": 1
+  }
+}

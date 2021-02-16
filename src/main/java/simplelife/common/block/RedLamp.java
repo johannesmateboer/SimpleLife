@@ -9,4 +9,5 @@ public class RedLamp extends Block {
     public RedLamp(Settings settings) {
         super(settings);
     }
+
 }
