@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GLG",
+    "GGG"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "G": {
+      "tag": "minecraft:impermeable"
+    }
+  },
+  "result": {
+    "item": "simplelife:wall_tv",
+    "count": 1
+  }
+}

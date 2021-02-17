@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "simplelife:block/wall_tv"
+    },
+    "facing=east": {
+      "model": "simplelife:block/wall_tv",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "simplelife:block/wall_tv",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "simplelife:block/wall_tv",
+      "y": 270
+    }
+  }
+}

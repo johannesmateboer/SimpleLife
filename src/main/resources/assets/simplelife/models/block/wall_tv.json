@@ -1,0 +1,79 @@
+{
+	"credit": "For Lotte - JohnPattox",
+	"textures": {
+		"0": "simplelife:models/wall_tv",
+		"particle": "simplelife:models/wall_tv"
+	},
+	"elements": [
+		{
+			"name": "television",
+			"from": [0, 4, 1],
+			"to": [16, 14, 2],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 12, 9]},
+			"faces": {
+				"north": {"uv": [0, 10, 16, 16], "texture": "#0"},
+				"east": {"uv": [15, 0, 16, 10], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 10], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 10], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "mountlet",
+			"from": [5, 6, 0],
+			"to": [6, 12, 1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [13, 14, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 1, 6], "texture": "#0"},
+				"east": {"uv": [0, 0, 1, 6], "texture": "#0"},
+				"south": {"uv": [15, 0, 16, 6], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 6], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "mountright",
+			"from": [10, 6, 0],
+			"to": [11, 12, 1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [18, 14, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 1, 6], "texture": "#0"},
+				"east": {"uv": [0, 0, 1, 6], "texture": "#0"},
+				"south": {"uv": [0, 0, 1, 6], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 6], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [-13, -45, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -78, 0],
+			"translation": [0, 1.25, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [35, 35, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"fixed": {
+			"rotation": [-1, 135, 0],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

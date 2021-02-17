@@ -1,8 +1,8 @@
 package simplelife.common.block.furniture;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
@@ -14,12 +14,9 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import simplelife.common.util.BoxRotator;
 
-@SuppressWarnings("deprecation")
-public class Monitor extends Block {
+public class BasicDirectionalFurniture extends HorizontalFacingBlock {
 
-    public static String identifier = "monitor";
-
-    public Monitor(Settings settings) {
+    public BasicDirectionalFurniture(Settings settings) {
         super(settings);
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
@@ -31,18 +28,16 @@ public class Monitor extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(Properties.HORIZONTAL_FACING, ctx.getPlayerFacing());
-    }
-
-    @Override
-    public BlockRenderType getRenderType(BlockState state) {
-        //With inheriting from BlockWithEntity this defaults to INVISIBLE, so we need to change that!
-        return BlockRenderType.MODEL;
+        Direction dirFacing = ctx.getPlayerFacing();
+        if (ctx.getPlayer().isSneaking()) {
+            dirFacing = ctx.getPlayerFacing().getOpposite();
+        }
+        return this.getDefaultState().with(Properties.HORIZONTAL_FACING, dirFacing);
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, ShapeContext entityContext) {
-        VoxelShape v = VoxelShapes.cuboid(0, 0, (6F/16F), 1, 1, (9F / 16F));
+        VoxelShape v = VoxelShapes.cuboid((2F / 16F), 0, (2F / 16F), (14F / 16F), 1, (15F / 16F));
         Direction direction = blockState.get(Properties.HORIZONTAL_FACING);
         switch (direction) {
             case NORTH:
@@ -56,4 +51,5 @@ public class Monitor extends Block {
         }
         return v;
     }
+
 }

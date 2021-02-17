@@ -10,6 +10,8 @@ import net.minecraft.util.math.Direction;
 
 public class OverheadLamp extends HorizontalFacingBlock {
 
+    public static String identifier = "overhead_lamp";
+
     public OverheadLamp(Settings settings) {
         super(settings);
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));

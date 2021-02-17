@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S  ",
+    "SPP",
+    "S S"
+  ],
+  "key": {
+    "P": {
+      "tag": "minecraft:pressure_plates"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "simplelife:basic_chair",
+    "count": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "PPP",
+    "   "
+  ],
+  "key": {
+    "B": {
+      "tag": "minecraft:buttons"
+    },
+    "P": {
+      "tag": "minecraft:pressure_plates"
+    }
+  },
+  "result": {
+    "item": "simplelife:keyboard",
+    "count": 1
+  }
+}

@@ -15,11 +15,11 @@ import net.minecraft.world.BlockView;
 import simplelife.common.util.BoxRotator;
 
 @SuppressWarnings("deprecation")
-public class Monitor extends Block {
+public class WallTv extends Block {
 
-    public static String identifier = "monitor";
+    public static String identifier = "wall_tv";
 
-    public Monitor(Settings settings) {
+    public WallTv(Settings settings) {
         super(settings);
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
@@ -36,13 +36,12 @@ public class Monitor extends Block {
 
     @Override
     public BlockRenderType getRenderType(BlockState state) {
-        //With inheriting from BlockWithEntity this defaults to INVISIBLE, so we need to change that!
         return BlockRenderType.MODEL;
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, ShapeContext entityContext) {
-        VoxelShape v = VoxelShapes.cuboid(0, 0, (6F/16F), 1, 1, (9F / 16F));
+        VoxelShape v = VoxelShapes.cuboid(0, 0.25F, 0, 1F, (14F / 16F), (2F / 16F));
         Direction direction = blockState.get(Properties.HORIZONTAL_FACING);
         switch (direction) {
             case NORTH:

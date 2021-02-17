@@ -1,0 +1,22 @@
+{
+	"credit": "For Lotte - JohnPattox",
+	"textures": {
+		"0": "simplelife:models/floormat",
+		"particle": "simplelife:models/floormat"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 1],
+			"to": [15, 1, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 8, 2]},
+			"faces": {
+				"north": {"uv": [0, 0, 14, 1], "texture": "#0"},
+				"east": {"uv": [3, 0, 12, 1], "texture": "#0"},
+				"south": {"uv": [0, 8, 14, 9], "texture": "#0"},
+				"west": {"uv": [5, 0, 14, 1], "texture": "#0"},
+				"up": {"uv": [0, 0, 14, 9], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [0, 0, 14, 9], "rotation": 180, "texture": "#0"}
+			}
+		}
+	]
+}

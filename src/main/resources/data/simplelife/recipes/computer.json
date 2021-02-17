@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MK ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "M": {
+      "item": "simplelife:monitor"
+    },
+    "K": {
+      "item": "simplelife:keyboard"
+    }
+  },
+  "result": {
+    "item": "simplelife:computer",
+    "count": 1
+  }
+}
