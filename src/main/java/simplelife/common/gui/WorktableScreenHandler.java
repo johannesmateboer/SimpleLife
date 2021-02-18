@@ -28,7 +28,7 @@ public class WorktableScreenHandler extends ScreenHandler {
         this.inventory = inventory;
 
         // some inventories do custom logic when a player opens it.
-        inventory.onOpen(playerInventory.player);
+        //inventory.onOpen(playerInventory.player);
 
         //This will place the slot in the correct locations for a 3x3 Grid. The slots exist on both server and client!
         //This will not render the background of the slots however, this is the Screens job

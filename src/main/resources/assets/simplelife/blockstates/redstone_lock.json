@@ -1,0 +1,37 @@
+{
+  "multipart": [
+    {
+      "when": { "facing": "north", "power" : 0},
+      "apply" : {"model": "simplelife:block/redstone_lock"}
+    },
+    {
+      "when": { "facing": "east", "power" : 0},
+      "apply" : {"model": "simplelife:block/redstone_lock", "y" :  90}
+    },
+    {
+      "when": { "facing": "south", "power" : 0},
+      "apply" : {"model": "simplelife:block/redstone_lock", "y" :  180}
+    },
+    {
+      "when": { "facing": "west", "power" : 0},
+      "apply" : {"model": "simplelife:block/redstone_lock", "y" :  270}
+    },
+
+    {
+      "when": { "facing": "north", "power" : 15},
+      "apply" : {"model": "simplelife:block/redstone_lock_active"}
+    },
+    {
+      "when": { "facing": "east", "power" : 15},
+      "apply" : {"model": "simplelife:block/redstone_lock_active", "y" :  90}
+    },
+    {
+      "when": { "facing": "south", "power" : 15},
+      "apply" : {"model": "simplelife:block/redstone_lock_active", "y" :  180}
+    },
+    {
+      "when": { "facing": "west", "power" : 15},
+      "apply" : {"model": "simplelife:block/redstone_lock_active", "y" :  270}
+    }
+  ]
+}

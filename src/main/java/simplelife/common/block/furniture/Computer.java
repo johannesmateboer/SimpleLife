@@ -35,13 +35,12 @@ public class Computer extends Block {
 
     @Override
     public BlockRenderType getRenderType(BlockState state) {
-        //With inheriting from BlockWithEntity this defaults to INVISIBLE, so we need to change that!
         return BlockRenderType.MODEL;
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, ShapeContext entityContext) {
-        VoxelShape v = VoxelShapes.cuboid(0, 0, (2F / 16F), 1, 1, (14F / 16F));
+        VoxelShape v = VoxelShapes.cuboid(0, 0, (2F / 16F), 1, (13F / 16F), (14F / 16F));
         Direction direction = blockState.get(Properties.HORIZONTAL_FACING);
         switch (direction) {
             case NORTH:

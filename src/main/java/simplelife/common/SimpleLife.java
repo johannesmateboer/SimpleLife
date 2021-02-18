@@ -7,19 +7,20 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import simplelife.common.block.RedstoneLock;
+import simplelife.common.block.entities.RedstoneLockEntity;
 import simplelife.common.block.entities.CabinetEntity;
 import simplelife.common.block.entities.WorktableEntity;
 import simplelife.common.block.furniture.Cabinet;
 import simplelife.common.block.furniture.Worktable;
+import simplelife.common.item.RedstoneLockKey;
 import simplelife.common.gui.WorktableScreenHandler;
 import simplelife.common.item.LottBoots;
 import simplelife.common.registries.Furniture;
@@ -46,6 +47,13 @@ public class SimpleLife implements ModInitializer {
     public static BlockEntityType<CabinetEntity> CABINET_ENTITY;
     public static final ScreenHandlerType<WorktableScreenHandler> CABINET_SCREEN_HANDLER;
 
+    // Redstone Lock
+    public static final Block REDSTONE_LOCK;
+    public static final BlockItem REDSTONE_LOCK_ITEM;
+    public static final Identifier REDSTONE_LOCK_IDENTIFIER = new Identifier(MOD_ID, "redstone_lock");
+    public static BlockEntityType<RedstoneLockEntity> REDSTONE_LOCK_ENTITY;
+    public static final RedstoneLockKey REDSTONE_LOCK_KEY;
+
     // Set the ItemGroup
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
             new Identifier(MOD_ID, "general"))
@@ -58,7 +66,6 @@ public class SimpleLife implements ModInitializer {
 
     public static final Identifier SOUND_TABLE_BELL_ID = new Identifier(SimpleLife.MOD_ID, "table_bell_ring");
     public static SoundEvent SOUND_TABLE_BELL = new SoundEvent(SOUND_TABLE_BELL_ID);
-
 
     static {
         Lamps.init();
@@ -74,6 +81,11 @@ public class SimpleLife implements ModInitializer {
         CABINET_ITEM = Registry.register(Registry.ITEM, CABINET_IDENTIFIER, new BlockItem(CABINET, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
         CABINET_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, CABINET_IDENTIFIER, BlockEntityType.Builder.create(CabinetEntity::new, CABINET).build(null));
         CABINET_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(CABINET_IDENTIFIER, WorktableScreenHandler::new);
+
+        REDSTONE_LOCK = Registry.register(Registry.BLOCK, REDSTONE_LOCK_IDENTIFIER, new RedstoneLock(FabricBlockSettings.of(Material.GLASS).hardness(10f).nonOpaque()));
+        REDSTONE_LOCK_ITEM = Registry.register(Registry.ITEM, REDSTONE_LOCK_IDENTIFIER, new BlockItem(REDSTONE_LOCK, new FabricItemSettings().group(SimpleLife.ITEM_GROUP)));
+        REDSTONE_LOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, REDSTONE_LOCK_IDENTIFIER, BlockEntityType.Builder.create(RedstoneLockEntity::new, REDSTONE_LOCK).build(null));
+        REDSTONE_LOCK_KEY = new RedstoneLockKey(new FabricItemSettings().group(SimpleLife.ITEM_GROUP).maxCount(1));
     }
 
     @Override
@@ -84,5 +96,8 @@ public class SimpleLife implements ModInitializer {
 
         //Sounds
         Registry.register(Registry.SOUND_EVENT, SOUND_TABLE_BELL_ID, SOUND_TABLE_BELL);
+
+        // Redstone Lock
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "redstone_lock_key"), REDSTONE_LOCK_KEY);
     }
 }
