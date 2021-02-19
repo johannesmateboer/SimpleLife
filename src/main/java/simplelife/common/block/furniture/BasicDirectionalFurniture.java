@@ -37,7 +37,7 @@ public class BasicDirectionalFurniture extends HorizontalFacingBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, ShapeContext entityContext) {
-        VoxelShape v = VoxelShapes.cuboid((2F / 16F), 0, (2F / 16F), (14F / 16F), 1, (15F / 16F));
+        VoxelShape v = VoxelShapes.cuboid(0, 0, 0, 1F, 1F, 1F);
         Direction direction = blockState.get(Properties.HORIZONTAL_FACING);
         switch (direction) {
             case NORTH:

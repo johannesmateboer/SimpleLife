@@ -28,6 +28,13 @@ public class Furniture {
     public static final Block WALL_TV = registerBlock(WallTv.identifier, new WallTv(FabricBlockSettings.of(Material.METAL).nonOpaque()));
     public static final Block SIMPLE_JAR = registerBlock(SimpleJar.identifier, new SimpleJar(FabricBlockSettings.of(Material.METAL).nonOpaque()));
 
+    // Desk
+    public static final Block DESK_CORNER = registerBlock(DeskCorner.identifier, new DeskCorner(FabricBlockSettings.of(Material.METAL).nonOpaque()));
+    public static final Block DESK_LEFT = registerBlock(DeskLeft.identifier, new DeskLeft(FabricBlockSettings.of(Material.METAL).nonOpaque()));
+    public static final Block DESK_MIDDLE = registerBlock(DeskMiddle.identifier, new DeskMiddle(FabricBlockSettings.of(Material.METAL).nonOpaque()));
+    public static final Block DESK_RIGHT = registerBlock(DeskRight.identifier, new DeskRight(FabricBlockSettings.of(Material.METAL).nonOpaque()));
+    public static final Block DESK_SINGLE = registerBlock(DeskSingle.identifier, new DeskSingle(FabricBlockSettings.of(Material.METAL).nonOpaque()));
+
     public static void init() {
         // This space is available for rent
     }
